@@ -24,7 +24,7 @@ const AdminAuth = () => {
 
     const userToken = userData ? userData.token : null;
 
-    if (userToken || token) {
+    if (userToken) {
       dispatch(authActions.getUserBack(userData.user, userData.token));
       navigate("/dashboard");
     }
