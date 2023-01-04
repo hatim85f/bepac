@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 const { check, validationResult } = require("express-validator");
 const User = require("../../models/User");
+const Admin = require("../../models/Admin");
 
 // getting user profile
 // access   Private needs login token
@@ -41,7 +42,7 @@ router.post(
 
     // checking if user exists
     try {
-      let user = await User.findOne({ userEmail: email });
+      let user = await Admin.findOne({ userEmail: email });
 
       if (!user) {
         return res

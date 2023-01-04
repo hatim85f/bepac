@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const UserSchema = Schema({
   userEmail: {
     type: String,
-    required: true,
   },
   firstName: {
     type: String,
@@ -14,29 +13,46 @@ const UserSchema = Schema({
     type: String,
     required: true,
   },
-  image: {
+  password: {
     type: String,
     required: true,
+  },
+  source: {
+    type: String,
+  },
+  userName: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
   },
   phone: {
     type: String,
     required: true,
+  },
+  whatsApp: {
+    type: String,
   },
   gender: {
     type: String,
   },
   country: {
     type: String,
-    required: true,
   },
   nationality: {
     type: String,
-    required: true,
+  },
+  adminFeedback: {
+    type: Array,
+  },
+  linkedin: {
+    type: String,
   },
   courses: [
     {
       type: mongoose.Types.ObjectId,
-      ref: "courses",
+      ref: "course",
     },
   ],
   certificates: {
@@ -50,10 +66,9 @@ const UserSchema = Schema({
   },
   position: {
     type: String,
-    required: true,
   },
   experience: {
-    type: Array,
+    type: Number,
   },
   DOB: {
     type: String,
@@ -73,6 +88,13 @@ const UserSchema = Schema({
   referredBy: {
     type: mongoose.Types.ObjectId,
     ref: "user",
+  },
+  aspiration: {
+    type: String,
+  },
+  status: {
+    type: String,
+    default: "Pending",
   },
 });
 
